@@ -1,5 +1,5 @@
 
-## Terraform commands 
+# Terraform
 
 ## Main Command 
 ```
@@ -16,7 +16,7 @@
 ```terraform output local_resource_name```  --- To get output using command.
 ```
 
-- To comment multiple lines in terraform /* code */
+- To comment multiple lines in terraform ``` /* code */ ```
 
 
 

@@ -1,0 +1,17 @@
+# Required fields
+apiVersion: v1   #Version of hte kubernetes
+kind: Pod
+metadata:
+  name: test-pod
+  labels:
+    app: testapp
+
+## pod definition
+spec:
+  containers:  # this is list as we can add multiple containers in a pod
+    - name: test-container
+      image: nginx
+
+# kubectl create -f pod.yaml - to create pods
+# kubectl delete pod_name - to delete pods
+# kubectl describe pod_name - to get details about the pod

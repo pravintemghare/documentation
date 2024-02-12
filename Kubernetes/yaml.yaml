@@ -1,0 +1,39 @@
+#Key - Value Pairs are used in YAML
+#EG:
+# Key Value Pair
+Fruit: Apple
+Vegetable: Carror
+Liquid: Water
+Meat: Chicken
+
+## Array/Lists
+Fruits:
+  - Orange
+  - Apple
+  - Mango
+
+Vegetables:
+  - Carrot
+  - Tomato
+  - Onion
+
+## Dictionary/Map
+Banana:
+  Calories: 105
+  Fat: 0.4g
+  Carbs: 27g
+
+## Key Value / Dictionary / Lists
+CarDetails: Maruti
+  - Color: Blue
+    Model:
+      Name: Swift
+      Model: 2014
+    Transmission: Manual
+    Price: 450000
+  - Color: Grey
+    Model:
+      Name: Dzire
+      Model: 2018
+    Transmission: Manual
+    Price: 650000    

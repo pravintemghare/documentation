@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: my-replica-set
+  labels:
+    app: myapp
+
+spec:
+  template:
+    metadata:
+      name: myapp
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+  replicas: 2
+  selector: 
+    matchLabels:
+      app: myapp
+
+#### Lables & Selectors
+# Labeling the pods becomes handy when deploying the replica sets. In this way the replicaset knows which pods to manage & monitor
+#`kubectl replace -f filename.yaml` to update the resources in K8s cluster
+#`kubectl scale --replicas=6 -f filename.yaml` to update replica set to scale up
+#`kubectl scale --replicas=6 replicaset replicaset_name` to update replica set to scale up
+# kubectl create -f replicasets.yaml - to create replicaset 
+# kubectl describe replicaset_name - to get more details of replicaset 
+# kubectl delete replicaset_name - to delete the replicaset 

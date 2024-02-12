@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: new-deployment
+  labels:
+    name: new-deploy
+    type: frontend
+
+spec:
+  template:
+    metadata:
+      name: deployment-pod
+      labels:
+        name: new-deploy
+        type: frontend
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.25.1-alpine
+  replicas: 3
+  selector:
+    matchLabels:
+      type: frontend
+
+# Updates & Rollback in Deployment
+# When an new version of an application deployed it is called a roll out
+# kubectl rollout status deployment/deployment_name - to checl rollout status of the deployment
+# kubectl rollout history deployment/deployment_name - list all previous rollouts for the application
+# 2 type of deployment strategy
+#  - Recreate Strategy - destory all running & deploy new running instances
+#  - Rolling update - taken down the older version and up the new version one by one (default)
+# kubectl apply -f deployment_filename - to trigger a new rollout
+# kubectl set image deployment/deployment nginx=nginx:1.14 -- this will not update the file
+# Upgrades:
+# It deployes 2 replica sets while upgrading to new version
+# Rollback:
+# kubectl rollout undo deployment/deployment name - rollback to previous version
+# kubectl create -f .\deployments.yaml --record - it will record the command

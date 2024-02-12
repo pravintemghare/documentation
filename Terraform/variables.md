@@ -14,8 +14,7 @@ resource local_file "file1" {
     filename = var.variable_name
 }
 
-#############################################################################################################
-#############################################################################################################
+
 
 - Variables in Terraform can be assigned values in multiple ways:
     - Environment variables
@@ -33,12 +32,10 @@ resource local_file "file1" {
     - Windows: setx TF_VAR_variablename some_value
     - Linux: export TF_VAR_variablename="somevalue"
 
-#############################################################################################################
-#############################################################################################################
 
 
-#############################################################################################################
-#############################################################################################################
+
+
 
 ## Variable Data Types
 
@@ -89,12 +86,10 @@ variable variablename {
     default = [tom,dick,harry]
 }
 
-#############################################################################################################
-#############################################################################################################
 
 
-#############################################################################################################
-#############################################################################################################
+
+
 
 ## Count & Count Index
 
@@ -128,12 +123,8 @@ resource aws_alb alb {
     count = 3
 }
 
-#############################################################################################################
-#############################################################################################################
 
 
-#############################################################################################################
-#############################################################################################################
 
 ## Conditional Experessions
 - A conditional experession uses the value of a bool experession to select one of two values.
@@ -155,9 +146,58 @@ resource "aws_instance" "prod" {
     count = var.istest == false ? 1 : 0
 }
 
-#############################################################################################################
-#############################################################################################################
 
+To assign variable create a new file variables.tf
 
-#############################################################################################################
-#############################################################################################################
+Sample:
+    variable "filename" {
+        default = "/root/testfile.txt"
+        type = string
+        description = "some information about variable"
+    }
+
+to use it in main.tf
+
+resource "local_file" "test" {
+    filename = `var.filename`
+}
+
+We can use type as string, number, bool, any(default)
+additional type: list, map, object & tuples
+
+list(string)
+list(number)
+
+to use list 
+default = ["Mr", "Mrs", "Sir"]
+prefix = var.var_name[0]
+
+to use map - key value pair
+default = {
+    "one" = "1"
+}
+content = var.var_name["one"] - matching key
+
+to use sets - cannot have duplicate elements
+default = ["apple", "manago"]
+
+to use objects
+type = object({
+    name = string
+    color = string
+})
+
+### Input variable using variable file
+
+terraform apply -var "var1=one" -var "var2=two"
+
+export TF_VAR_filename="root/text.txt"
+
+terraform.tfvars file extension supported terraform.tfvars.json *.auto.tfvars *.auto.tfvars.json
+filename = "/root/test.txt"
+lenght = "2"
+
+First - the export variable
+Second - terraform.tfvars
+Third - variable.auto.tfvars
+Fouth - Command line variables

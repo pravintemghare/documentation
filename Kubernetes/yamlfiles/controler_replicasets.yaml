@@ -1,0 +1,27 @@
+## Replication controler helps us run multiple instance of a pod in cluster thuse providing high availibility
+## Even this can be handle in 1 pod by replacing the current running pod with a new one
+## Replication can scale into multiple nodes
+## Replication Controller is older tech than Replica sets
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: myapp-rc
+  labels:
+    app: myapp
+
+spec:
+  template:
+    metadata:
+      name: myapp
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+  replicas: 2
+
+# kubectl create -f controler.replicasets.yaml - to create replicaset controllers
+# kubectl describe replicaset-controller_name - to get more details of replicaset controller
+# kubectl delete replicaset-controller_name - to delete the replicaset controller
+
