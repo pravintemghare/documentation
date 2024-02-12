@@ -1,4 +1,4 @@
-## What is Helm
+# Helm
 
 - Package Manager for kubernetes
 - To pack YAML files and distrubuting them in public & private repositories
