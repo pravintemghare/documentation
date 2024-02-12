@@ -24,7 +24,7 @@ spec:
 
 # Updates & Rollback in Deployment
 # When an new version of an application deployed it is called a roll out
-# kubectl rollout status deployment/deployment_name - to checl rollout status of the deployment
+# kubectl rollout status deployment/deployment_name - to check rollout status of the deployment
 # kubectl rollout history deployment/deployment_name - list all previous rollouts for the application
 # 2 type of deployment strategy
 #  - Recreate Strategy - destory all running & deploy new running instances

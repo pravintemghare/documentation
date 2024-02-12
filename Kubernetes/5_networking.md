@@ -2,7 +2,7 @@
 
 - Node Ip-address
 - Ip-address is assigned to a pod
-- Kubernetes cluster cluster creates it private network with 10.244.0.0
+- Kubernetes cluster creates it private network with 10.244.0.0
 
 ## Cluster Networking
 - We need to configure networking

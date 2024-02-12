@@ -6,7 +6,15 @@
 - Copy Sources Code to /opt/ folder
 - Run the web server using flask command
 
-##### DockerFile Example
+### Layered Architecture of a sample image
+Layer1 - Base Ubuntu layer
+Layer2 - Changes in apt packages
+Layer3 - Changes in pip packages
+Layer4 - Source Code
+Layer5 - Update Entrypoint with flask command
+Layer6 - Container Layer - This layer is only until the lifecycle of a container
+
+### DockerFile Example
 From Ubuntu
 
 RUN apt-get update
