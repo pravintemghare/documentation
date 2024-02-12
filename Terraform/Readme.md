@@ -3,6 +3,7 @@
 ## Terraform commands 
 
 ## Main Command 
+```
 ```terraform init``` -- To initialize the directory in which working and download all the required providers plugins. Downloaded to .terraform directory.
 ```terraform validate``` -- To validate our terraform files and check for report for any error.
 ```terraform plan``` -- Create an execution plan for terraform apply. 
@@ -14,6 +15,7 @@
 ```terraform refresh``` -- To check tha latest state of your infrastructure and update the state file accordingly. 
 ```terraform fmt``` -- To rewrite the terraform configuration file to take care of the overall formating.
 ```terraform output local_resource_name```  --- To get output using command.
+```
 
 - To comment multiple lines in terraform /* code */
 #############################################################################################################
