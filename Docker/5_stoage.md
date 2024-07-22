@@ -5,13 +5,7 @@
     - image
     - volumes
 
-### Layered Architecture of a sample image
-Layer1 - Base Ubuntu layer
-Layer2 - Changes in apt packages
-Layer3 - Changes in pip packages
-Layer4 - Source Code
-Layer5 - Update Entrypoint with flask command
-Layer6 - Container Layer - This layer is only until the lifecycle of a container
+
 
 ### Volumes
 `docker volume create vol_name` - to create volume for docker container. This will create a new folder under /var/lib/docker/volumes/data_volume
