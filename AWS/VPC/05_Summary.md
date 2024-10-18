@@ -1,0 +1,24 @@
+## VPC Summary
+
+- __CIDR__ – IP Range • VPC – Virtual Private Cloud => we define a list of IPv4 & IPv6 CIDR 
+- __Subnets__ – tied to an AZ, we define a CIDR • Internet Gateway – at the VPC level, provide IPv4 & IPv6 Internet Access 
+- __Route Tables__ – must be edited to add routes from subnets to the IGW, VPC Peering Connections, VPC Endpoints, … 
+- __Bastion Host__ – public EC2 instance to SSH into, that has SSH connectivity to EC2 instances in private subnets 
+- __NAT Instances__ – gives Internet access to EC2 instances in private subnets. Old, must be setup in a public subnet, disable Source / Destination check flag 
+- __NAT Gateway__ – managed by AWS, provides scalable Internet access to private EC2 instances, when the target is an IPv4 address
+- __NACL__ – stateless, subnet rules for inbound and outbound, don’t forget Ephemeral Ports 
+- __Security Groups__ – stateful, operate at the EC2 instance level 
+- __VPC Peering__ – connect two VPCs with non overlapping CIDR, non-transitive 
+- __VPC Endpoints__ – provide private access to AWS Services (S3, DynamoDB, CloudFormation, SSM) within a VPC 
+- __VPC Flow Logs__ – can be setup at the VPC / Subnet / ENI Level, for ACCEPT and REJECT traffic, helps identifying attacks, analyze using Athena or CloudWatch Logs Insights 
+- __Site-to-Site VPN__ – setup a Customer Gateway on DC, a Virtual Private Gateway on VPC, and site-to-site VPN over public Internet 
+- __AWS VPN CloudHub__ – hub-and-spoke VPN model to connect your sites
+- __Direct Connect__ – setup a Virtual Private Gateway on VPC, and establish a direct private connection to an AWS Direct Connect Location - Direct Connect Gateway – setup a Direct Connect to many VPCs in different AWS regions 
+- __AWS PrivateLink / VPC Endpoint Services__
+    - Connect services privately from your service VPC to customers VPC 
+    - Doesn’t need VPC Peering, public Internet, NAT Gateway, Route Tables 
+    - Must be used with Network Load Balancer & ENI 
+- __ClassicLink__ – connect EC2-Classic EC2 instances privately to your VPC 
+- __Transit Gateway__ – transitive peering connections for VPC, VPN & DX 
+- __Traffic Mirroring__ – copy network traffic from ENIs for further analysis 
+- __Egress-only Internet Gateway__ – like a NAT Gateway, but for IPv6 targets
