@@ -1,4 +1,4 @@
-`docker run image_name` - to start a docker container- images is pulled from local or ducker hub
+`docker run image_name` - to start a docker container- images is pulled from local or ducker hub \n
 `docker ps` - to list the containers running
 `docker ps -a` - to list all containers running & stopped
 `docker stop container_id/name` - to stop running container
